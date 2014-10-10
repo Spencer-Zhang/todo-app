@@ -9,8 +9,6 @@
     <input placeholder="Email"    name="email" ng-model='form.email'"/><br>
     <input placeholder="Password" name="password" ng-model='form.password'" type="password" /><br>
 
-    {{form}}
-
     <input ng-click="session.login()" type="submit" value="{{session.action}}" /><br>
     <span class="error">{{session.error}}</span>
   </form>

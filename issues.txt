@@ -1,0 +1,2 @@
+- It's possible to create users without entering a password.
+- However, users created this way get a password error when trying to log in.

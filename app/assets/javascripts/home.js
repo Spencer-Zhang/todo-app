@@ -6,7 +6,7 @@ var app = angular.module("TodoApp", [])
 var API_ROOT = "http://recruiting-api.nextcapital.com/"
 
 app.run(function($rootScope) {
-  $rootScope.user = {loggedIn: false}
+  $rootScope.user = {user_id: "", api_token: ""}
 })
 
 function ErrorController($scope, $rootScope) {
@@ -22,19 +22,29 @@ function SessionController($scope, $rootScope) {
   $scope.form = {email: "test", password: ""}
 
   this.login = function() {
-    $.ajax({
-      url: API_ROOT + "users/sign_in",
-      type: "POST",
-      data: $scope.form,
-      success: function(body) {
-        console.log(body)
-      },
-      error: function(body) {
-        var errorMessage = JSON.parse(body.responseText)['error'];
-        self.error = errorMessage;
-        $scope.$apply()
+    var path;
+    if($scope.form.email != "" && $scope.form.password != "") {
+      if(self.action == "Log In") {
+        path = "users/sign_in"
+      } else if (self.action == "Sign Up") {}
+        path = "users"
       }
-    })
+      $.ajax({
+        url: API_ROOT + path,
+        type: "POST",
+        data: $scope.form,
+        success: function(body) {
+          $rootScope.user = JSON.parse(body);
+        },
+        error: function(body) {
+          var errorMessage = JSON.parse(body.responseText);
+          self.error = errorMessage;
+          $scope.$apply()
+        }
+      })
+    } else {
+      self.error = "Fields cannot be blank"
+    }
   }
 
   this.logout = function() {
