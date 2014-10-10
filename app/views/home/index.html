@@ -1,18 +1,18 @@
 <h1>Todo App</h1>
 
-<div class="error" ng-controller="ErrorController">
-
-</div>
-
 <div class="content" id="menu" ng-controller="SessionController as session">
   <span class="button" ng-hide="session.user.loggedIn" ng-class="{active: session.action == 'Log In'}" ng-click="session.action = 'Log In'">Log In</span>
   <span class="button" ng-hide="session.user.loggedIn" ng-class="{active: session.action == 'Sign Up'}" ng-click="session.action = 'Sign Up'">Sign Up</span>
   <span class="button" ng-show="session.user.loggedIn" ng-click="session.logout()">Log Out</span>
 
   <form name="sign-in" ng-hide='session.user.loggedIn'">
-    <input placeholder="Email"    name="email"/><br>
-    <input placeholder="Password" name="password" type="password" /><br>
+    <input placeholder="Email"    name="email" ng-model='form.email'"/><br>
+    <input placeholder="Password" name="password" ng-model='form.password'" type="password" /><br>
+
+    {{form}}
+
     <input ng-click="session.login()" type="submit" value="{{session.action}}" /><br>
+    <span class="error">{{session.error}}</span>
   </form>
 
 </div>

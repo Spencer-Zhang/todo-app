@@ -14,7 +14,7 @@ h1 {
   padding: 10px;
 }
 
-.content, .error{
+.content{
   /*position: relative;*/
   width: 400px;
   border: 1px solid black;
@@ -40,7 +40,7 @@ h1 {
 }
 
 .error {
-  background-color: red;
+  color: red;
 }
 
 form {
