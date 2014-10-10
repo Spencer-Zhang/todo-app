@@ -15,11 +15,16 @@
   {{session.user}}
 </div>
 
-<div class="content" id="todo-list" ng-controller="TodoController as todolist">
+<div class="content" id="todo-list" ng-controller="TodoController as todolist" ng-show="user.api_token">
   <div class="todo" ng-repeat="todo in todolist.todos">
-    {{todo}}
+    <span class="index">{{$index + 1}}.</span>
+    <span contenteditable class="description" ng-model="todo.description" ng-class="{strikeout: todo.is_complete}"></span>
+    <input type="checkbox" class="checkbox" ng-model="todo.is_complete" />
+    <br>
   </div>
+
+
   <button ng-click="todolist.createTodo()">Create a new task</button><br>
-  <button>Save</button>
-  <span class="error">{{session.error}}</span>
+  <button ng-click="todolist.save()">Save</button><br>
+  <span class="error">{{todolist.error}}</span>
 </div>
