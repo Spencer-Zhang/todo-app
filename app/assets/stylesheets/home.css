@@ -1,4 +1,54 @@
-/*
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
-*/
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+h1 {
+  background-color: #333333;
+  color: white;
+  display: block;
+  text-align: center;
+  margin: 0 auto 40px;
+  font-size: 40px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.content, .error{
+  /*position: relative;*/
+  width: 400px;
+  border: 1px solid black;
+  margin: 20px auto;
+  padding: 15px 10px;
+  border-radius: 10px;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.button {
+  color: blue;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.active {
+  color: black;
+  text-decoration: none;
+}
+
+.error {
+  background-color: red;
+}
+
+form {
+  display: block;
+  margin-top: 10px;
+}
+
+input {
+  font-size: 20px;
+  width: 320px;
+}
