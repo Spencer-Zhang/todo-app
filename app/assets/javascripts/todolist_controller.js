@@ -18,6 +18,8 @@ function TodoController($scope, $rootScope, $http) {
         self.todos = data
       })
       responsePromise.error(function(data) { self.error = data })
+    } else {
+      self.user = {}
     }
     self.error = ""
   })
