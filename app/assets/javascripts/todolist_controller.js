@@ -41,9 +41,19 @@ function TodoController($scope, $rootScope, $http) {
     })
   }
 
-  this.delete = function(index) {
-    todo = self.todos[index]
-    $http.delete(user_path + "/todos/" + todo.id, {params: user_key})
-    self.todos.splice(index, 1)
+  this.moveUp = function(index) {
+    if(index > 0) {
+      todo = self.todos[index]
+      self.todos.splice(index, 1)
+      self.todos.splice(index-1, 0, todo)
+    }
+  }
+
+  this.moveDown = function(index) {
+    if(index < self.todos.length - 1) {
+      todo = self.todos[index];
+      self.todos.splice(index, 1);
+      self.todos.splice(index+1, 0, todo);
+    }
   }
 }

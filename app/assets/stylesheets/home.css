@@ -15,7 +15,6 @@ h1 {
 }
 
 .content{
-  /*position: relative;*/
   border: 1px solid black;
   margin: 20px auto;
   padding: 10px 10px;
@@ -25,9 +24,18 @@ h1 {
   text-align: center;
 }
 
+
+
 #menu {
   width: 400px;
 }
+
+#menu input {
+  font-size: 16px;
+  width: 320px;
+}
+
+
 
 #todo-list {
   width: 600px;
@@ -37,7 +45,7 @@ h1 {
 
 #todo-list .index {
   position: absolute;
-  left: 100px;
+  left: 70px;
   width: 50px;
   cursor: move;
 }
@@ -45,7 +53,7 @@ h1 {
 #todo-list .description {
   width: 320px;
   position: absolute;
-  left: 170px;
+  left: 140px;
   border-bottom: 1px solid black;
   text-align:left;
   white-space: nowrap;
@@ -54,7 +62,19 @@ h1 {
 
 #todo-list .checkbox {
   position: absolute;
-  left: 140px;
+  left: 110px;
+  margin-top: 10px;
+}
+
+#todo-list .up {
+  position: absolute;
+  left: 470px;
+  margin-top: 10px;
+}
+
+#todo-list .down {
+  position: absolute;
+  left: 510px;
   margin-top: 10px;
 }
 
@@ -70,6 +90,10 @@ button {
   cursor: pointer;
   padding: 10px;
   border-radius: 10px;
+}
+
+.fa {
+  cursor: pointer;
 }
 
 .active {
@@ -88,11 +112,9 @@ form {
   margin-top: 10px;
 }
 
-#menu input {
-  font-size: 16px;
-  width: 320px;
-}
+
 
 .strikeout {
   text-decoration: line-through;
+  color: #BBBB99;
 }

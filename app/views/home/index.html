@@ -20,6 +20,8 @@
     <span class="index">{{$index + 1}}.</span>
     <span contenteditable class="description" ng-model="todo.description" ng-class="{strikeout: todo.is_complete}"></span>
     <input type="checkbox" class="checkbox" ng-model="todo.is_complete" />
+    <i class="up fa fa-arrow-up" ng-click="todolist.moveUp($index)"></i>
+    <i class="down fa fa-arrow-down" ng-click="todolist.moveDown($index)"></i>
     <br>
   </div>
 
