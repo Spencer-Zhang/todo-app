@@ -2,12 +2,9 @@ function TodoController($scope, $rootScope, $http) {
   var self = this;
   var user_path = ""
   var user_key = {}
-  this.error = ""
 
   $rootScope.$watch("user", function() {
     self.user = $rootScope.user
-
-    console.log(self.user)
 
     if(self.user.id != undefined) {
       user_path = API_ROOT + "users/" + self.user.id
@@ -18,11 +15,11 @@ function TodoController($scope, $rootScope, $http) {
 
       responsePromise = $http.get(user_path + "/todos", {params: user_key})
       responsePromise.success(function(data) {
-        console.log(data)
         self.todos = data
       })
-      responsePromise.error(function(data) {console.log(data)})
+      responsePromise.error(function(data) { self.error = data })
     }
+    self.error = ""
   })
 
   this.createTodo = function() {
@@ -45,9 +42,7 @@ function TodoController($scope, $rootScope, $http) {
   }
 
   this.delete = function(index) {
-    console.log(index)
     todo = self.todos[index]
-    console.log(todo)
     $http.delete(user_path + "/todos/" + todo.id, {params: user_key})
     self.todos.splice(index, 1)
   }

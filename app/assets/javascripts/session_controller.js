@@ -1,9 +1,6 @@
 function SessionController($scope, $rootScope, $http) {
   var self = this;
-
   this.action = 'Log In'
-
-  this.error = ""
   $scope.form = {email: "testuser", password: "test"}
 
   this.loggedIn = false;
