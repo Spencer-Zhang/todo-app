@@ -1,25 +1,25 @@
 <h1>Todo App</h1>
 
 <div class="content" id="menu" ng-controller="SessionController as session">
-  <span class="button" ng-hide="session.user.loggedIn" ng-class="{active: session.action == 'Log In'}" ng-click="session.action = 'Log In'">Log In</span>
-  <span class="button" ng-hide="session.user.loggedIn" ng-class="{active: session.action == 'Sign Up'}" ng-click="session.action = 'Sign Up'">Sign Up</span>
-  <span class="button" ng-show="session.user.loggedIn" ng-click="session.logout()">Log Out</span>
+  <span class="button" ng-hide="session.loggedIn" ng-class="{active: session.action == 'Log In'}" ng-click="session.action = 'Log In'">Log In</span>
+  <span class="button" ng-hide="session.loggedIn" ng-class="{active: session.action == 'Sign Up'}" ng-click="session.action = 'Sign Up'">Sign Up</span>
+  <span class="button" ng-show="session.loggedIn" ng-click="session.logout()">Log Out</span>
 
-  <form name="sign-in" ng-hide='session.user.loggedIn'">
+  <form name="sign-in" ng-hide='session.loggedIn'">
     <input placeholder="Email"    name="email" ng-model='form.email'"/><br>
     <input placeholder="Password" name="password" ng-model='form.password'" type="password" /><br>
 
     <input ng-click="session.login()" type="submit" value="{{session.action}}" /><br>
     <span class="error">{{session.error}}</span>
   </form>
-
+  {{session.user}}
 </div>
 
 <div class="content" id="todo-list" ng-controller="TodoController as todolist">
-  {{todolist.user.loggedIn}}
-
   <div class="todo" ng-repeat="todo in todolist.todos">
     {{todo}}
   </div>
+  <button ng-click="todolist.createTodo()">Create a new task</button><br>
   <button>Save</button>
+  <span class="error">{{session.error}}</span>
 </div>
