@@ -1,0 +1,136 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+h1 {
+  background-color: #333333;
+  color: white;
+  display: block;
+  text-align: center;
+  margin: 0 auto 40px;
+  font-size: 40px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.content{
+  border: 1px solid black;
+  margin: 20px auto;
+  padding: 10px 10px;
+  border-radius: 10px;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+}
+
+
+
+#menu {
+  width: 400px;
+}
+
+#menu input {
+  font-size: 16px;
+  width: 320px;
+}
+
+
+
+#todo-list {
+  width: 600px;
+  position: relative;
+  background-color: #FFEEBB;
+}
+
+#todo-list .index {
+  position: absolute;
+  left: 70px;
+  width: 50px;
+  cursor: move;
+}
+
+#todo-list .description {
+  width: 320px;
+  position: absolute;
+  left: 140px;
+  border-bottom: 1px solid black;
+  text-align:left;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+#todo-list .checkbox {
+  position: absolute;
+  left: 110px;
+  margin-top: 10px;
+}
+
+#todo-list .up {
+  position: absolute;
+  left: 470px;
+  margin-top: 10px;
+}
+
+#todo-list .down {
+  position: absolute;
+  left: 510px;
+  margin-top: 10px;
+}
+
+button {
+  font-size: 16px;
+}
+
+.button {
+  color: blue;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.fa {
+  cursor: pointer;
+}
+
+.active {
+  color: black;
+  text-decoration: none;
+  background-color: #DDDDFF;
+  cursor: default;
+}
+
+.error {
+  color: red;
+}
+
+form {
+  display: block;
+  margin-top: 10px;
+}
+
+
+
+.strikeout {
+  text-decoration: line-through;
+  color: #BBBB99;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
