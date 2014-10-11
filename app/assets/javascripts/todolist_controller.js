@@ -1,4 +1,4 @@
-function TodoController($scope, $rootScope, $http) {
+var TodoController = ["$scope", "$rootScope", "$http", function($scope, $rootScope, $http) {
   var self = this;
   var user_path = ""
   var user_key = {}
@@ -62,4 +62,4 @@ function TodoController($scope, $rootScope, $http) {
       self.todos.splice(index+1, 0, todo);
     }
   }
-}
+}]

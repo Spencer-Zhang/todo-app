@@ -1,4 +1,4 @@
-function SessionController($scope, $rootScope, $http) {
+var SessionController = ["$scope", "$rootScope", "$http", function($scope, $rootScope, $http) {
   var self = this;
   this.action = 'Log In'
   $scope.form = {email: "", password: ""}
@@ -37,4 +37,4 @@ function SessionController($scope, $rootScope, $http) {
     $http.delete(API_ROOT + "users/sign_out", {params:user_key})
     $rootScope.user = {};
   }
-}
+}]
