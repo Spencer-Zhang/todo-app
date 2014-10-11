@@ -7,22 +7,26 @@ function TodoController($scope, $rootScope, $http) {
     self.user = $rootScope.user
 
     if(self.user.id != undefined) {
-      user_path = API_ROOT + "users/" + self.user.id
-      user_key = {
-        user_id: self.user.id.toString(),
-        api_token: self.user.api_token
-      }
-
-      responsePromise = $http.get(user_path + "/todos", {params: user_key})
-      responsePromise.success(function(data) {
-        self.todos = data
-      })
-      responsePromise.error(function(data) { self.error = data })
+      self.loadTodos();
     } else {
       self.user = {}
     }
     self.error = ""
   })
+
+  this.loadTodos = function() {
+    user_path = API_ROOT + "users/" + self.user.id
+    user_key = {
+      user_id: self.user.id.toString(),
+      api_token: self.user.api_token
+    }
+
+    responsePromise = $http.get(user_path + "/todos", {params: user_key})
+    responsePromise.success(function(data) {
+      self.todos = data
+    })
+    responsePromise.error(function(data) { self.error = data })
+  }
 
   this.createTodo = function() {
     $http.post(user_path + "/todos", user_key)
